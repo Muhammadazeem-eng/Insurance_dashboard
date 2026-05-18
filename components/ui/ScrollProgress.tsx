@@ -1,0 +1,15 @@
+"use client";
+
+import { motion, useScroll, useSpring } from "motion/react";
+
+export default function ScrollProgress() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30, mass: 0.5 });
+
+  return (
+    <motion.div
+      style={{ scaleX }}
+      className="fixed top-0 left-0 right-0 h-[3px] z-[60] origin-left bg-gradient-to-r from-accent via-accent-purple to-accent"
+    />
+  );
+}
